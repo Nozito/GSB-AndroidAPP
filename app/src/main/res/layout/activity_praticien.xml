@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:src="@drawable/gsb"
+        android:contentDescription="Logo GSB" />
+
+    <!-- Titre -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Le catalogue de Praticiens"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Liste des praticiens -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp" />
+
+    <!-- Bouton de création d'un praticien -->
+    <Button
+        android:id="@+id/btn_create_practitioner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Créer un praticien"
+        android:backgroundTint="#000000"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo GSB -->
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/gsb"
+            android:layout_marginBottom="8dp"
+            android:scaleType="fitCenter"/>
+
+        <!-- Titre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Création d’un rapport de visite"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Champ Date -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date :"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/input_background"
+            android:hint="JJ/MM/AAAA"
+            android:padding="8dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Champ Motif -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Motif :"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/input_background"
+            android:hint="Motif de la visite"
+            android:padding="8dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Champ Référence Échantillons -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ref échantillons :"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/input_background"
+            android:hint="Référence des échantillons"
+            android:padding="8dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Champ Commentaire -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commentaire :"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/input_background"
+            android:hint="Ajoutez un commentaire"
+            android:padding="8dp"
+            android:gravity="top"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Bouton Valider -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Valider"
+            android:backgroundTint="@color/black"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:onClick="validerRapport"/>
+    </LinearLayout>
+</ScrollView>
