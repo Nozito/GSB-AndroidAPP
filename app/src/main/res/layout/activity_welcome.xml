@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <!-- Animation Lottie -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieWelcome"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/loading_animation" />
+
+    <!-- Bienvenue Message -->
+    <TextView
+        android:id="@+id/textBienvenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenue"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginTop="16dp" />
+
+    <!-- Message de chargement -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veuillez patienter pendant que nous chargeons l'application..."
+        android:textColor="#666"
+        android:layout_marginTop="12dp"
+        android:textSize="14sp"
+        android:textAlignment="center"/>
+</LinearLayout>

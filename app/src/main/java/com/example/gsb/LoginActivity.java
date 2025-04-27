@@ -1,22 +1,24 @@
 package com.example.gsb;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
     private Button btnLogin;
-    private ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +28,6 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.email);
         etPassword = findViewById(R.id.Password);
         btnLogin = findViewById(R.id.loginButton);
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        apiService = retrofit.create(ApiService.class);
 
         btnLogin.setOnClickListener(v -> login());
     }
@@ -46,21 +41,44 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        // Création de la requête de login
         LoginRequest request = new LoginRequest(email, password);
 
+        // Crée une instance de GSBApi
+        GSBApi apiService = ApiClient.getApiServiceWithoutAuth();  // Utilise sans token pour le login
         apiService.login(request).enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(LoginActivity.this, "Connexion réussie !", Toast.LENGTH_SHORT).show();
+                    LoginResponse loginResponse = response.body();
+                    String token = loginResponse.getToken();
+                    String nom = loginResponse.getNom();
+                    String prenom = loginResponse.getPrenom();
+
+                    Log.d("LOGIN", "Token: " + token);
+                    Log.d("LOGIN", "Nom: " + nom + ", Prénom: " + prenom);
+
+                    SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("TOKEN", token);
+                    editor.putString("VISITEUR_ID", loginResponse.getVisiteurId());
+                    editor.putString("USER_NOM", nom);
+                    editor.putString("USER_PRENOM", prenom);
+                    editor.apply();
+
+                    Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Échec de la connexion", Toast.LENGTH_SHORT).show();
+                    Log.d("LOGIN", "Échec de la connexion");
+                    Toast.makeText(LoginActivity.this, "Échec de la connexion, vérifiez vos identifiants", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "Erreur: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("LOGIN", "Erreur lors du login", t);
+                Toast.makeText(LoginActivity.this, "Erreur réseau : " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

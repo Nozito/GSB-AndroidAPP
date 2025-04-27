@@ -1,101 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF">
 
-    <!-- Logo Centré -->
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/gsb"
-        android:layout_gravity="center"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenue sur votre application GSB"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:background="#3F2A28"
-        android:textColor="#FFFFFF"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"/>
+        android:padding="16dp">
 
-    <!-- Nom et prénom de la personne connecté -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nom Prénom"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/gsb"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
 
-    <!-- Texte "Mes derniers praticiens visités" -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mes derniers praticiens visités :"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        android:layout_marginBottom="8dp"/>
+        <!-- Carte de bienvenue -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardWelcome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Cases pour afficher les praticiens -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/input_background"
-        android:hint="Praticien 1"
-        android:padding="8dp"
-        android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/input_background"
-        android:hint="Praticien 2"
-        android:padding="8dp"
-        android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenue sur votre application GSB"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/input_background"
-        android:hint="Praticien 3"
-        android:padding="8dp"
-        android:layout_marginBottom="16dp"/>
+                <TextView
+                    android:id="@+id/textNomPrenom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nom Prénom"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Voir Plus"
-        android:backgroundTint="@color/black"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        <!-- Titre de la section praticiens -->
+        <TextView
+            android:id="@+id/textTitrePraticiens"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Mes derniers praticiens visités :"
+            android:textSize="16sp"
+            android:textColor="#444"
+            app:layout_constraintTop_toBottomOf="@id/cardWelcome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Retrouvez vos anciennes visites"
-        android:backgroundTint="@color/black"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+        <!-- RecyclerView directement -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPraticiens"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/textTitrePraticiens"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Retrouvez nos échantillons"
-        android:backgroundTint="@color/black"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"/>
-</LinearLayout>
+        <!-- Boutons -->
+        <LinearLayout
+            android:id="@+id/buttonsContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewPraticiens"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="32dp">
+
+            <Button
+                android:id="@+id/btnVoirPlus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Voir plus"
+                android:backgroundTint="@color/black"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btnMedicaments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retrouvez nos échantillons"
+                android:backgroundTint="@color/black"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
