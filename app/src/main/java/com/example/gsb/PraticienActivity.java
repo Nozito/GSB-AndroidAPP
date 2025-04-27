@@ -1,22 +1,21 @@
 package com.example.gsb;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gsb.ApiService;
-import com.example.gsb.Praticien;
-
+import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PraticienActivity extends AppCompatActivity {
 
@@ -24,39 +23,67 @@ public class PraticienActivity extends AppCompatActivity {
     private PraticienAdapter praticienAdapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_praticien);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        // Initialisation de la RecyclerView
+        recyclerView = findViewById(R.id.recyclerViewPraticiens);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Initialisation avec une liste vide pour éviter l'erreur de RecyclerView
+        praticienAdapter = new PraticienAdapter(new ArrayList<>(), new PraticienAdapter.OnActionListener() {
+            @Override
+            public void onViewMore(Praticien praticien) {
+                // Lancer l'activité de détails pour le praticien sélectionné
+                Intent intent = new Intent(PraticienActivity.this, PraticienDetailActivity.class);
+                intent.putExtra("PRA_ID", praticien.getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCreateReport(Praticien praticien) {
+                Intent intent = new Intent(PraticienActivity.this, CreerRapportActivity.class);
+                intent.putExtra("PRA_ID", praticien.getId());
+                startActivity(intent);
+            }
+        });
+        recyclerView.setAdapter(praticienAdapter);
+
+        // Chargement des praticiens
         fetchPraticiens();
     }
 
     private void fetchPraticiens() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        // Récupérer le token stocké dans SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("TOKEN", null);
 
-        ApiService apiService = retrofit.create(ApiService.class);
+        if (token == null) {
+            Toast.makeText(this, "Vous devez être connecté pour voir cette page", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        apiService.getPraticiens().enqueue(new Callback<List<Praticien>>() {
+        // Utiliser ApiClient avec le token pour obtenir les praticiens
+        GSBApi api = ApiClient.getApiService(token); // Utiliser le client avec le token
+
+        Call<List<Praticien>> call = api.getPraticiens();
+
+        call.enqueue(new Callback<List<Praticien>>() {
             @Override
             public void onResponse(Call<List<Praticien>> call, Response<List<Praticien>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    praticienAdapter = new PraticienAdapter(response.body());
-                    recyclerView.setAdapter(praticienAdapter);
+                    // Mettre à jour l'adapter avec la liste de praticiens récupérée
+                    praticienAdapter.updateData(response.body());
                 } else {
-                    Toast.makeText(PraticienActivity.this, "Erreur de récupération", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PraticienActivity.this, "Erreur lors du chargement des praticiens", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Praticien>> call, Throwable t) {
-                Log.e("API_ERROR", t.getMessage());
-                Toast.makeText(PraticienActivity.this, "Connexion échouée", Toast.LENGTH_SHORT).show();
+                Log.e("API_ERROR", "Échec du chargement des praticiens", t);
+                Toast.makeText(PraticienActivity.this, "Erreur réseau : " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
