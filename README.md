@@ -76,16 +76,15 @@ L'objectif de cette application est de fournir un outil simple et sécurisé pou
    - Si l'utilisateur est authentifié, il peut accéder à la liste des praticiens et des visites associées.
 
 <img src="https://github.com/user-attachments/assets/5a412cc0-71db-434e-a859-0097d3c305c2" width="300">
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/8fff6db3-e9c4-4840-9c48-543fc9fae4e4" />
 
 ### 2. **Gestion des Praticiens**
    - Une fois connecté, l'utilisateur voit une liste de ses praticiens.
    - Pour chaque praticien, l'utilisateur peut ajouter, modifier ou supprimer des visites.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/2b8a6ed3-9095-468f-acc9-6a95d49010a9" width="300" style="display:inline-block; margin-right:10px;">
-  <img src="https://github.com/user-attachments/assets/ad1c053e-1b45-49a6-92f6-67f0b4000430" width="300" style="display:inline-block; margin-right:10px;">
-  <img src="https://github.com/user-attachments/assets/4b450476-0e88-4f55-adfe-4bde5e818ba1" width="300" style="display:inline-block;">
+  <img src="https://github.com/user-attachments/assets/e89b961e-f8a1-42e6-8300-a93f4eebfb7f" width="300" styme="display:inline-block">
+  <img src="https://github.com/user-attachments/assets/7a6b039a-5a89-43d5-b3e7-a4d8c6eedee1" width="300" style="display:inline-block; margin-right:10px;">
+  <img src="https://github.com/user-attachments/assets/7e4c0c58-2d00-440d-a588-51c374689469" width="300" style="display:inline-block;">
 </p>
 
 
@@ -94,7 +93,8 @@ L'objectif de cette application est de fournir un outil simple et sécurisé pou
    - Chaque médicament affiche des informations détaillées, telles que le nom, la posologie, les effets et les contre-indications.
    - Lors de la consultation des médicaments, un BottomSheet affiche les informations détaillées lorsque l'utilisateur clique sur un médicament.
 
-<img src="https://github.com/user-attachments/assets/0f7db2ff-a7a8-46b4-ba76-f344778a083f" width="300">
+<img src="https://github.com/user-attachments/assets/53c31535-4d85-4f52-ae0e-1fc8a6b71efa" width="300" style="display:inline-block">
+<img src="https://github.com/user-attachments/assets/a6b03467-50c3-4ec1-8669-7692234ad8fe" width="300" style="display:inline-block; margin-right:10px;">
 
 
 ### 4. **Interactions avec l'API**
