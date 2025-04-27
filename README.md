@@ -76,11 +76,12 @@ L'objectif de cette application est de fournir un outil simple et sécurisé pou
    - Si l'utilisateur est authentifié, il peut accéder à la liste des praticiens et des visites associées.
    - Lancement de l'application avec une animation d'entrée.
    - Animation après la connexion, le temps de chargement des données.
-
-<img src="https://github.com/user-attachments/assets/6604be87-6f31-416e-bc5a-41d68e32a010" width="300" style="display:inline-block;">>
+     
+<p align="center">
+<img src="https://github.com/user-attachments/assets/6604be87-6f31-416e-bc5a-41d68e32a010" width="300" style="display:inline-block;">
 <img src="https://github.com/user-attachments/assets/25ad8f52-7446-47c6-83cf-2ac2b8c61633" width="300" style="display:inline-block; margin-right:10px;">
 <img src="https://github.com/user-attachments/assets/fb4fe7ca-c57e-48ec-be9c-607b6763489f" width="300" style="display:inline-block;">
-
+</p>
 
 
 ### 2. **Gestion des Praticiens**
@@ -99,9 +100,10 @@ L'objectif de cette application est de fournir un outil simple et sécurisé pou
    - Chaque médicament affiche des informations détaillées, telles que le nom, la posologie, les effets et les contre-indications.
    - Lors de la consultation des médicaments, un BottomSheet affiche les informations détaillées lorsque l'utilisateur clique sur un médicament.
 
+<p align="center">
 <img src="https://github.com/user-attachments/assets/53c31535-4d85-4f52-ae0e-1fc8a6b71efa" width="300" style="display:inline-block">
 <img src="https://github.com/user-attachments/assets/a6b03467-50c3-4ec1-8669-7692234ad8fe" width="300" style="display:inline-block; margin-right:10px;">
-
+</p>
 
 ### 4. **Interactions avec l'API**
    - L'application se connecte à une API pour récupérer les données des praticiens, des visites et des médicaments.
