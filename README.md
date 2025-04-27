@@ -74,15 +74,21 @@ L'objectif de cette application est de fournir un outil simple et sécurisé pou
 ### 1. **Page d'Accueil et Connexion**
    - L'utilisateur doit se connecter pour accéder à l'application.
    - Si l'utilisateur est authentifié, il peut accéder à la liste des praticiens et des visites associées.
+   - Lancement de l'application avec une animation d'entrée.
+   - Animation après la connexion, le temps de chargement des données.
 
-<img src="https://github.com/user-attachments/assets/5a412cc0-71db-434e-a859-0097d3c305c2" width="300">
+<img src="https://github.com/user-attachments/assets/6604be87-6f31-416e-bc5a-41d68e32a010" width="300" style="display:inline-block;">>
+<img src="https://github.com/user-attachments/assets/25ad8f52-7446-47c6-83cf-2ac2b8c61633" width="300" style="display:inline-block; margin-right:10px;">
+<img src="https://github.com/user-attachments/assets/fb4fe7ca-c57e-48ec-be9c-607b6763489f" width="300" style="display:inline-block;">
+
+
 
 ### 2. **Gestion des Praticiens**
    - Une fois connecté, l'utilisateur voit une liste de ses praticiens.
    - Pour chaque praticien, l'utilisateur peut ajouter, modifier ou supprimer des visites.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e89b961e-f8a1-42e6-8300-a93f4eebfb7f" width="300" styme="display:inline-block">
+  <img src="https://github.com/user-attachments/assets/e89b961e-f8a1-42e6-8300-a93f4eebfb7f" width="300" style="display:inline-block;">
   <img src="https://github.com/user-attachments/assets/7a6b039a-5a89-43d5-b3e7-a4d8c6eedee1" width="300" style="display:inline-block; margin-right:10px;">
   <img src="https://github.com/user-attachments/assets/7e4c0c58-2d00-440d-a588-51c374689469" width="300" style="display:inline-block;">
 </p>
