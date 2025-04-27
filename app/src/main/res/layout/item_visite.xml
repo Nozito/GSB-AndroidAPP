@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:elevation="2dp">
+
+    <!-- Motif de la visite -->
+    <TextView
+        android:id="@+id/textMotif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Motif"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Commentaire de la visite -->
+    <TextView
+        android:id="@+id/textCommentaire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Commentaire"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
+    <!-- Date de la visite -->
+    <TextView
+        android:id="@+id/textDateVisite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date de la visite"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"/>
+
+    <!-- Bouton pour modifier la visite -->
+    <Button
+        android:id="@+id/buttonModifierVisite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifier la visite"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Bouton pour supprimer la visite -->
+    <Button
+        android:id="@+id/buttonSupprimerVisite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supprimer la visite"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

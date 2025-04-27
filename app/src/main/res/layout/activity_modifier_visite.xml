@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Titre -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modifier la Visite"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Date de la visite -->
+    <EditText
+        android:id="@+id/editTextDateVisite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date de la visite (format: YYYY-MM-DD)"
+        android:inputType="date"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Commentaire -->
+    <EditText
+        android:id="@+id/editTextCommentaire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Commentaire"
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Bouton pour enregistrer les modifications -->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enregistrer"
+        android:textStyle="bold"
+        android:backgroundTint="#000000"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
