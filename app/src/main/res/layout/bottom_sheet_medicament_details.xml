@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textNomCommercial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nom Commercial"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Bloc d'infos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informations générales"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textDepotLegal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Dépôt légal"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/textFamille"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Famille"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Bloc effets / CI -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Efficacité et Sécurité"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textEffets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Effets thérapeutiques"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/textContreIndications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Contre-indications"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Bloc interactions -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Interactions"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textInteractions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aucune interaction"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Bloc posologie -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Posologie"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textPosologie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Non spécifiée"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>

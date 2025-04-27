@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Titre des détails de la visite -->
+    <TextView
+        android:id="@+id/textDetailVisite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Détails de la visite"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Nouveau TextView pour le motif -->
+    <TextView
+        android:id="@+id/textMotif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Motif"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Spinner pour sélectionner le motif -->
+    <Spinner
+        android:id="@+id/spinnerMotifs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Champ d'édition pour la date -->
+    <TextView
+        android:id="@+id/textDateVisite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date de la visite"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Champ d'édition pour la date -->
+    <EditText
+        android:id="@+id/editDateVisite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/input_background"
+        android:hint="Modifier la date (JJ/MM/AAAA)"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Commentaire et champ d'édition -->
+    <EditText
+        android:id="@+id/editCommentaire"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/input_background"
+        android:hint="Ajoutez un commentaire"
+        android:padding="8dp"
+        android:gravity="top"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Bouton de mise à jour -->
+    <Button
+        android:id="@+id/btnUpdateVisite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mettre à jour la visite"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/black"/>
+
+</LinearLayout>
